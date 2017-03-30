@@ -1,0 +1,15 @@
+.headerTitle
+{
+    width: 100%;
+    display:block;
+
+}
+.headerTitle h1
+{
+    text-align: center;
+}
+.deconnexion
+{
+    float:right;
+    margin-right:15px;
+}

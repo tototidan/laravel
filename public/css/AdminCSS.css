@@ -1,0 +1,21 @@
+.nameNote
+{
+    font-size:36px;
+    text-align: center;
+}
+
+.modifnotes
+{
+    display: inline-block;
+    float: left;
+    height:300px;
+}
+
+.addnotes
+{
+    display: inline-block;
+    float: left;
+    height:300px;
+    margin-left: 100px;
+}
+

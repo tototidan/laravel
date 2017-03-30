@@ -1,0 +1,94 @@
+.block_array
+{
+    display: inline-block;
+    width:400px;
+    padding-left: 20%;
+    padding-top: 5%;
+
+}
+.block_array_admin
+{
+    display: inline-block;
+    width:400px;
+    padding-left: 10%;
+
+}
+.form_admin
+{
+    float:right;
+
+}
+
+
+.img_array
+{
+    display: inline-block;
+}
+
+.graph
+{
+
+    margin-right:10%;
+    margin-top:50px;
+
+
+    float:right;
+}
+.graphAdmin
+{
+
+    position:absolute;
+    right:100px;
+    top:350px;
+}
+
+.placeimage
+{
+    padding-left:43%;
+    padding-top:100px;
+
+    display:inline-block;
+
+
+}
+.placesubmit
+{
+    margin-left:45%;
+}
+
+.placename
+{
+
+    margin-left:40%;
+    font-size:40px;
+    text-align: center;
+    display: inline-block;
+}
+.placename2
+{
+    padding-left: 38%;
+    display: inline-block;
+    font-size:36px;
+}
+.comm
+{
+    padding-left:40%;
+}
+
+.afficheComm
+{
+    padding-left: 40%;
+}
+.commentaireP
+{
+    background-color:gray;
+    width:250px;
+}
+.commentairePReponse
+{
+    background-color:gainsboro;
+    width:200px;
+}
+
+
+
