@@ -82,5 +82,7 @@ Route::group(['middleware' => array("auth")], // s'execute avant controller, ver
 
         Route::resource("commentaire", "CommentairesController");
 
+        route::post("imageUploadPost","ImagesController@imageUploadPost");
+
 
     });

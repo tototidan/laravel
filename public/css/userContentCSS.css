@@ -44,9 +44,21 @@
 
 .placeimage
 {
-    padding-left:43%;
+    margin-left:45%;
     padding-top:100px;
+    width:150px;
+    height:150px;
+    display:inline-block;
 
+
+}
+
+.placeformimage
+{
+    margin-left:45%;
+    padding-top:100px;
+    width:150px;
+    height:150px;
     display:inline-block;
 
 

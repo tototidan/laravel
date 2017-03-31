@@ -116,7 +116,7 @@ class UsersController extends Controller
         {
 
             if(User::where('id',$input['id'])->exists() != null) {
-                $user = User::with("Commentaires", "tags", 'notes')->where('id', $input['id'])->get(); //get l'uilisateur par son id
+                $user = User::with("Commentaires", "tags", 'notes','image')->where('id', $input['id'])->get(); //get l'uilisateur par son id
                 $users = $user->toArray();
 
 

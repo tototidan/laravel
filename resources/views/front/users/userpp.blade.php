@@ -6,14 +6,30 @@
 
     {!! Lava::render('AreaChart', 'Population', 'graph2') !!}
 
-	{{ Html::image('image/spongebob.png','Image',array("class" => "placeimage")) }} <br>
+	@if($users[0]['image']['file_path'] != null)
+		{{ Html::image($users[0]['image']['file_path'],'Image',array("class" => "placeimage")) }} <br>
+
+
+	@else
+
+	{{ Html::image('image/spongebob.png','Image',array("class" => "placeformimage")) }} <br>
+		@endif
+
+	@if(Session("id") == $users[0]["id"])
+		<div class="placeimage">
+			<form action="{{url("imageUploadPost")}}" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="user_id" value="{{$users[0]["id"]}}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<label for="image">Choissisez votre image de profil</label>
+				<input type="file" name="image">
+				<input type="submit" value="Changez l'image de profil">
+
+			</form>
+		</div>
+	@endif
 
 	<p  class="placename" >{{$users[0]['prenom']}}  {{$users[0]['nom']}} </p>
-
-
-
 	<p class="placename2"> Mail : {{$users[0]['email']}}</p>
-
 	<div  class="graph">
 		<p> Moyenne : {{$moyenne}}</p>
 		<img id="graph2">
