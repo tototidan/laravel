@@ -11,7 +11,8 @@
         "adamwathan/bootforms": "^0.8.2",
         "barryvdh/laravel-debugbar": "^2.3",
         "anlutro/curl": "^1.4",
-        "khill/lavacharts" : "3.0.*"
+        "khill/lavacharts" : "3.0.*",
+        "roumen/sitemap": "^2.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

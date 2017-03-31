@@ -47,4 +47,20 @@
 
 	@endforeach
 
+
+	<div class="container" style="margin-top:20px;">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="tag-list well">
+					@foreach($users[0]["tags"] as $value)
+					<a href="#" class="btn btn-primary" role="button">{{$value["nom"]}}</a>
+						@endforeach
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 @endsection

@@ -29,11 +29,12 @@
     <p>Modifier notes </p>
     @foreach($users[0]['notes'] as $value)
 
-        <form action="{{Route("notes.update",$value->id)}}" method="get">
+        <form  action="{{Route("notes.update",$value->id)}}" method="get">
             <label for="note">Note : </label>
             <input type="text" name="note" value="{{$value->note}}">
             <input type="hidden" name="coeff" value="1">
             <input type="submit" value="Changer la note">
+            <input type="submit" formaction="{{Route("notes.delete",$value->id)}}" value="Supprimer la note">
 
 
         </form>

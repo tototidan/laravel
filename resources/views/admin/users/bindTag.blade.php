@@ -40,7 +40,7 @@
 
 <div class="addnotes">
     <p>Ajouter tags </p>
-    <form action="{{url("bindTtoU")}}" method="post">
+    <form action="{{url("bindTtoU")}}" method="post" >
         <select name="tag_id">
             @foreach($tag as $mytag)
                 <option value="{{$mytag["id"]}}">{{$mytag["nom"]}}</option>
@@ -48,29 +48,11 @@
         </select>
         <input type="hidden" name="user_id" value="{{$users[0]["id"]}}">
         <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
-        <input type="submit" value="Lier le tag a l'utilisateur">
+        <input type="submit"  value="Lier le tag a l'utilisateur">
     </form>
 
 </div>
 
-
-
-<script type="text/javascript">
-    $("document").ready()
-    {
-
-
-        function popup(page)
-        {
-            window.open(page, '', 'resizable=no, location=no, width=1000, height=600, status=no, menubar=no')
-        }
-
-    }
-
-
-
-
-</script>
 
 </body>
 </html>

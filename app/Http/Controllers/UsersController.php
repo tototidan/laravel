@@ -63,29 +63,6 @@ class UsersController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-        return view("front/users/edit", compact("user"));
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -100,13 +77,15 @@ class UsersController extends Controller
         $status_create = $user_update->update($input);
         if($status_create)
         {
-            return redirect()->back()->with("succes", "Changements appliqués avec succés ")->withInput();
+            return redirect()->back()->with("success", "Changements appliqués avec succés ")->withInput();
         }
         else
         {
             return redirect()->back()->with("danger", "Une erreur est survenue, merci de bien vouloir recommencer")->withInput(); //renvois erreur et le commande de l'utilisateur
         }
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -132,19 +111,18 @@ class UsersController extends Controller
 
         $input = $request->all();
 
-        // pour add un tag a une personne : $test = User::find(1);  $test->tags()->attach("1");
 
         if(ISSET($input['id']) and !EMPTY($input['id']))
         {
 
             if(User::where('id',$input['id'])->exists() != null) {
-                $user = User::with("Commentaires", "tags", 'notes')->where('id', $input['id'])->get();
+                $user = User::with("Commentaires", "tags", 'notes')->where('id', $input['id'])->get(); //get l'uilisateur par son id
                 $users = $user->toArray();
 
 
                 $population = Lava::DataTable();
-                $population->addDateColumn();
-                $population->addNumberColumn('Note');
+                $population->addDateColumn("date");
+                $population->addNumberColumn('Note'); // créer les info pour le graphique
 
                 $dummyValue = 2000;
                 $coeff = 0;
@@ -154,6 +132,7 @@ class UsersController extends Controller
                     foreach ($users[0]['notes'] as $test) {
                         $coeff += $test['coeff'];
                         $note += $test['note'];
+
                         $population->addRow([(String)$dummyValue, $test["note"]]);
                         $dummyValue++;
                     }
@@ -165,12 +144,6 @@ class UsersController extends Controller
                     $moyenne = "pas de note";
                 }
 
-
-
-
-
-
-
                 Lava::AreaChart('Population', $population, [
                     'title' => 'Note',
                     'legend' => [
@@ -181,95 +154,25 @@ class UsersController extends Controller
                     'height' => 200
 
                 ]);
+
                 return view("front/users/userpp", compact("users","moyenne"));
             }
             else
             {
-                return redirect("");
+                return redirect()->back();
             }
         }
         else
         {
-            return redirect("");
+            return redirect()->back();
+
         }
 
     }
 
-    public function adminpp(Request $request)
-    {
-
-        $input = $request->all();
-
-        if(ISSET($input['id']) and !EMPTY($input['id']))
-        {
-
-            if(User::where('id',$input['id'])->exists() != null)
-            {
-                $user = User::with("Commentaires",'tags' , 'notes')->where('id',$input['id'])->get();
-                $users = $user->toArray();
-
-                $coeff = 0;
-                $note = 0;
-                if (count($users[0]['notes']) > 0)
-                {
-                    foreach ($users[0]['notes'] as $test) {
-                        $coeff += $test['coeff'];
-                        $note += $test['note'];
-                    }
-
-                    $moyenne = round($note / $coeff, 2);
-                }
-                else
-                {
-                    $moyenne = "pas de note";
-                }
-
-                return view("admin/users/adminpp", compact("users","moyenne"));
-            } //TODO: sinon , return la vue de base
-            else
-            {
-                $users=User::get();
-                return view("admin/users/index", compact("users"));
-            }
-        }
-        else
-        {
-            $users=User::get();
-            return view("admin/users/index", compact("users"));
-        }
-
-    }
-
-    public function admin()
-    {
-        $users=User::get();
-        return view("admin/users/index", compact("users"));
-    }
-
-    public function addnotes(Request $request)
-    {
-        $input = $request->all();
-        if(ISSET($input['id']) and !EMPTY($input['id']))
-        {
-            if(User::where("id","=",$input['id'])->exists() != null) {
-
-                $users = User::where("id", "=", $input['id'])->with("notes")->get();
 
 
-                return view("admin/users/addnotes", compact("users"));
-            }
-            else
-            {
-               return  abort(404);
-            }
-        }
-        else
-        {
-            return  abort(404);
-        }
 
-
-    }
 
 
 

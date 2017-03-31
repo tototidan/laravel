@@ -160,6 +160,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         AdamWathan\BootForms\BootFormsServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class
 
     ],
 

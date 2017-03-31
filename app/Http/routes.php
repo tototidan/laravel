@@ -37,11 +37,11 @@ Route::group(['middleware' => array("auth", "admin")], // s'execute avant contro
     function()
 {
 
-    Route::get("admin", "UsersController@admin");
+    Route::get("admin", "AdminsController@admin");
 
-    Route::get("adminpp", "UsersController@adminpp");
+    Route::get("adminpp", "AdminsController@adminpp");
 
-    route::get("addnotes", "UsersController@addnotes");
+    route::get("addnotes", "NotesController@addnotes");
 
     route::get("addtags", "TagsController@show");
 
@@ -52,6 +52,10 @@ Route::group(['middleware' => array("auth", "admin")], // s'execute avant contro
     Route::get("notes/{id}/update", ['as' => 'notes.update', 'uses' => 'NotesController@update']);
 
     Route::get('user/{site}/delete', ['as' => 'user.delete', 'uses' => 'UsersController@destroy']);
+
+    Route::get('user/{site}/update', ['as' => 'user.update', 'uses' => 'UsersController@update']);
+
+    Route::get('note/{site}/delete', ['as' => 'notes.delete', 'uses' => 'NotesController@destroy']);
 
     Route::get('commentaire/{site}/delete', ['as' => 'commentaire.delete', 'uses' => 'CommentairesController@destroy']);
 
@@ -80,4 +84,3 @@ Route::group(['middleware' => array("auth")], // s'execute avant controller, ver
 
 
     });
-

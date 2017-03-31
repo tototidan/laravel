@@ -128,7 +128,7 @@ class TagsController extends Controller
             {
                 $test = User::find($input["user_id"]);
                 $test->tags()->attach($input["tag_id"]);
-                return redirect()->back()->with("succes","Relation créé avec succées")->withInput();
+                return redirect()->back()->with("success","Relation créé avec succées")->withInput();
             }
             else
             {
