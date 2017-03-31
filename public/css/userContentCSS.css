@@ -28,11 +28,14 @@
 .graph
 {
 
-    margin-right:10%;
-    margin-top:50px;
+    margin-right:5%;
 
-
+    display:inline-block;
     float:right;
+}
+.graph p
+{
+    margin-left: 30px;
 }
 .graphAdmin
 {
@@ -56,7 +59,7 @@
 .placeformimage
 {
     margin-left:45%;
-    padding-top:100px;
+    margin-top:20px;
     width:150px;
     height:150px;
     display:inline-block;
