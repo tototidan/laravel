@@ -3,7 +3,7 @@
 
 @section('content')
 
-
+	<title>{{Session("name")}}</title>
     {!! Lava::render('AreaChart', 'Population', 'graph2') !!}
 
 	@if($users[0]['image']['file_path'] != null)

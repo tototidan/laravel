@@ -1,7 +1,7 @@
 @extends("admin/default")
 
 @section("content")
-
+    <title>Index</title>
     <a href="javascript:popup('addtags')"> <h2 style="margin-left: 42%;">Création/suppression de tags</h2></a>
     <div class="block_array_admin">
 

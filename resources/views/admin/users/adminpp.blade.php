@@ -2,6 +2,7 @@
 
 
 @section('content')
+    <title>Interface admin pp</title>
 
     <a href="javascript:popup(('bindTag?id={{$users[0]["id"]}}'))"> <h2 style="margin-left: 42%;">Gestions des tags </h2></a>
 

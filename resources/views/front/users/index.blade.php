@@ -3,7 +3,7 @@
 
 @section('content')
 
-
+	<title>Index</title>
 
 	<div class="block_array">
 
